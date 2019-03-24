@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Beer } from '../../models/Beer';
+import { BeerService } from '../../services/beer.service';
+
 @Component({
   selector: 'app-beer-item',
   templateUrl: './beer-item.component.html',
@@ -7,7 +9,7 @@ import { Beer } from '../../models/Beer';
 })
 export class BeerItemComponent implements OnInit {
   @Input() beer: Beer;
-  constructor() { }
+  constructor(private beerService:BeerService) { }
 
   ngOnInit() {
   }
@@ -24,5 +26,8 @@ export class BeerItemComponent implements OnInit {
 
   onToggle(beer) {
     console.log('toggle');
+
+    // this.beerService.toggleCompleted(beer).subscribe(berr =>
+    //   console.log(beer));
   } 
 }
