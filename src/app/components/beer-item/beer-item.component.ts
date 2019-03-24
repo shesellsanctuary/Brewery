@@ -21,4 +21,8 @@ export class BeerItemComponent implements OnInit {
     }
     return classes;
   }
+
+  onToggle(beer) {
+    console.log('toggle');
+  } 
 }
