@@ -30,3 +30,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ### How will the data change throughout the app?
 A timer will be set to change it randomly so the application can respond accordingly.
+or
+API?
+
+### How will Shane correct the temperature?
+He can press a button to notify that the temperature has been reset.
+
