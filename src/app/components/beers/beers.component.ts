@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Beer } from '../../models/Beer';
-import { BeerService } from '../../services/beer.service';
+import { BeerClient } from '../../services/beer.service';
 
 @Component({
   selector: 'app-beers',
@@ -12,7 +12,7 @@ export class BeersComponent implements OnInit {
   beers:Beer[];
   name:string = 'Emily';
 
-  constructor(private beerService:BeerService) {
+  constructor(private beerService:BeerClient) {
     this.changeName('Emily');
 
   }
@@ -22,10 +22,8 @@ export class BeersComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.beers = this.beerService.getBeers();
-    this.beerService.getBeers().subscribe(beers => {
-      this.beers = beers;
-      console.log(this.beers);
-    });
+    this.beerService.initSocket();
+    console.debug('Client: Connected\n');
+    this.beers = this.beerService.getBeers();
   }
 }
