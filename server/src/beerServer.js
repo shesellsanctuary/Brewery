@@ -21,9 +21,6 @@ io.on('connection', (socket) => {
     let beers = require('../beers.json');
     startDelivery(socket, beers.beers);
 
-    io.on('disconnect', () => {
-        console.info('Server: Client disconnected');
-    });
 });
 
 function getRandomInt(max) {
@@ -39,8 +36,14 @@ function startDelivery(socket, beers) {
     
     // Send new data
     socket.emit('beers', beers);
-
-    setTimeout(() => {
+    
+    socket.on('disconnect', () => {
+        console.info('Server: Client disconnected');
+        clearTimeout(loop);
+    });
+    
+    let loop = setTimeout(() => {
         startDelivery(socket, beers);
     }, 10000);
+    
 }
