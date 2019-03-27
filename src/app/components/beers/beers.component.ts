@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Beer } from '../../models/Beer';
 import { BeerClient } from '../../services/beer.service';
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:3000');
 
 @Component({
   selector: 'app-beers',
@@ -12,19 +15,19 @@ export class BeersComponent implements OnInit {
   beers:Beer[];
   name:string = 'Emily';
 
-  constructor(private beerService:BeerClient) {
+  constructor() {
     this.changeName('Emily');
-    this.beerService.listen('beers').subscribe((beers) => {
-      console.debug('Client: Got beers: ', beers);
-    })
   }
-
+  
   changeName(name:string):void {
     this.name = name;
   }
-
+  
   ngOnInit() {
     console.debug('Client: On Init');
+    socket.on('beers', (beers) => {
+      this.beers = beers;
+    })
     // this.beerService.listen('beers').subscribe((beers) => {
     //   console.debug('Client: Got beers: ', beers);
     // })
