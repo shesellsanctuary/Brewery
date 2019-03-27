@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BeerClient } from './services/beer.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'brewery';
   
+  constructor(private beerService:BeerClient) {
+  }
 }
