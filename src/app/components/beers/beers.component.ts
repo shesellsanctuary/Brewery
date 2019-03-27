@@ -14,7 +14,9 @@ export class BeersComponent implements OnInit {
 
   constructor(private beerService:BeerClient) {
     this.changeName('Emily');
-
+    this.beerService.listen('beers').subscribe((beers) => {
+      console.debug('Client: Got beers: ', beers);
+    })
   }
 
   changeName(name:string):void {
@@ -22,8 +24,13 @@ export class BeersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.beerService.initSocket();
-    console.debug('Client: Connected\n');
-    this.beers = this.beerService.getBeers();
+    console.debug('Client: On Init');
+    // this.beerService.listen('beers').subscribe((beers) => {
+    //   console.debug('Client: Got beers: ', beers);
+    // })
+
+    // this.beerService.initSocket();
+    // console.debug('Client: Connected\n');
+    // this.beers = this.beerService.getBeers();
   }
 }

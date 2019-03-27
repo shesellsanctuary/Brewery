@@ -30,7 +30,7 @@ function startDelivery(socket) {
     // Get Json 
     let beers = require('../beers.json');
     // Change temperature randomly
-    console.debug('Server: Started delivery of beers: ', beers.beers);
+    console.debug('Server: Started delivery of beers: ');
     socket.emit('beers', beers.beers);
 
     setTimeout(() => {

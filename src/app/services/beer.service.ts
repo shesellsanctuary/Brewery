@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as socketIo from 'socket.io-client';
+import { Observable } from 'rxjs';
 
 import { Beer } from '../models/Beer';
 
@@ -8,20 +9,30 @@ import { Beer } from '../models/Beer';
 })
 
 export class BeerClient {
-  beersUrl:string = 'http://localhost:3000';
+  serverPort = 3000;
+  beersUrl:string = `http://localhost:${this.serverPort}`;
   beers:Beer[];
-  private socket;
+  socket: any;
 
-  initSocket(): void {
+  constructor() {
     this.socket = socketIo(this.beersUrl);
-    this.socket.on('beers', (res) => {
-      this.beers = res;
-      console.debug('Client: received = ', res);
-    });
   }
 
-  getBeers():Beer[] {
-    console.debug('Client: Trying to get beers\n');
-    return this.beers;
+  listen(event: string) {
+    return new Observable((subscriber) =>{
+      this.socket.on(event, (data) => {
+        subscriber.next(data);
+      })
+    });
+
+    // this.socket.on('beers', (res) => {
+    //   this.beers = res;
+    //   console.debug('Client: received = ', res);
+    // });
   }
+
+  // getBeers():Beer[] {
+  //   console.debug('Client: Trying to get beers\n');
+  //   return this.beers;
+  // }
 }

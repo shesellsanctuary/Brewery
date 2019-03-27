@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { BeerClient } from './beer.service';
 
-describe('BeerService', () => {
+describe('BeerClient', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
