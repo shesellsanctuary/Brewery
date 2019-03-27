@@ -16,31 +16,31 @@ const server = app.listen(port, () => {
 const io = socket(server);
 
 io.on('connection', (socket) => {
-    console.log(`Server: Connected client on port ${port}`);
+    console.info(`Server: Connected client on port ${port}`);
 
-    startDelivery(socket);
+    let beers = require('../beers.json');
+    startDelivery(socket, beers.beers);
 
     io.on('disconnect', () => {
-        console.log('Server: Client disconnected');
+        console.info('Server: Client disconnected');
     });
 });
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
 
-function startDelivery(socket) {
-    // Get Json 
-    let beers = require('../beers.json');
+function startDelivery(socket, beers) {
+    console.info('Server: Started delivery of beers: ');
     // Change temperature randomly
-    console.debug('beers: ', beers);
-    let type = Math.floor(Math.random() * 5);
-    let newBeers = beers.beers;
-    console.debug('type: ', type);
-    console.debug('newbeers: ', newBeers);
-    newBeers[type].temperature = Math.floor(Math.random() * 9);
-    console.debug('beers: ', newBeers);
-    console.debug('Server: Started delivery of beers: ');
-    socket.emit('beers', newBeers);
+    let type = getRandomInt(5);
+    beers[type].temperature = getRandomInt(10);
+    console.debug('Server: changed beer -> ', beers[type]);
+    
+    // Send new data
+    socket.emit('beers', beers);
 
-    // setTimeout(() => {
-    //     startDelivery(socket);
-    // }, 5000);
+    setTimeout(() => {
+        startDelivery(socket, beers);
+    }, 10000);
 }

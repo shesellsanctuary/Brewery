@@ -12,7 +12,7 @@
     {
       "id": 2,
       "name": "IPA",
-      "temperature": 7,
+      "temperature": 5,
       "idealTemp": [
         5,
         6
@@ -39,7 +39,7 @@
     {
       "id": 5,
       "name": "Wheat beer",
-      "temperature": 2,
+      "temperature": 3,
       "idealTemp": [
         3,
         5
@@ -48,7 +48,7 @@
     {
       "id": 6,
       "name": "Pale Ale",
-      "temperature": 7,
+      "temperature": 4,
       "idealTemp": [
         4,
         6
