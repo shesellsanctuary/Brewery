@@ -3,6 +3,7 @@
 .beer {
     padding: 5px;
     border-bottom: 1px #ccc dotted;
+    color: black;
 }
 .in-temperature {
     text-decoration-color: chartreuse;
