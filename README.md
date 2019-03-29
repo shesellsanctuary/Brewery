@@ -29,10 +29,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Questions 
 
 ### How will the data change throughout the app?
-A timer will be set to change it randomly so the application can respond accordingly.
-or
-API?
+To create the ilusion of real-time temperature data coming to the app I used websockets from socketIO. The server sends new data changed randomly every 10 seconds.
 
 ### How will Shane correct the temperature?
-He can press a button to notify that the temperature has been reset.
+I suppose Shane will see the notification and solve it by closing the trucks door for example. Then when the temperature stabalizes it will show on the app.
+
+## What could be better for version 2
+*I would like to make a better UI with one component per beer type container.
+*Maybe a toast and/or a sound notification on out-of-temperature status.
+
 
