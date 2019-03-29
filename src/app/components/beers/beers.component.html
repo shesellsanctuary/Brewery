@@ -1,14 +1,11 @@
-<h2>
-  Beers
-</h2>
-<app-beer-item 
-*ngFor="let beer of beers" 
-[beer]="beer">
-</app-beer-item>
-
-<!-- <h1>
-  Hello, {{ name }}!
-</h1>
-<p>
-  beers works!
-</p> -->
+<nb-card [size]="'medium'">
+  <nb-card-header>
+    <div>Beers</div>
+    <div>Temperature</div>
+    <div>Ideal Range</div>
+  </nb-card-header>
+  <nb-card-body>
+    <app-beer-item *ngFor="let beer of beers" [beer]="beer">
+    </app-beer-item>
+  </nb-card-body>
+</nb-card>

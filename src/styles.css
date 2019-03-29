@@ -1,14 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
-.beer {
-    padding: 5px;
-    border-bottom: 1px #ccc dotted;
-}
 .in-temperature {
-    text-decoration-color: chartreuse;
-    background-color: chartreuse;
+    background-color: #3ef3a2;
 }
 
 .out-of-temperature {
-    background-color: rgb(212, 30, 30);
+    background-color: #f31e53;
 }
+.beer {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+    font-size: 1.25rem;
+    position: relative;
+    color: nb-theme(color-fg);
+    padding: 1rem nb-theme(card-padding);
+    border-bottom:
+      nb-theme(list-item-border-width)
+      nb-theme(card-header-border-type)
+      nb-theme(separator);
+  }
+
+nb-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.675rem 0.5rem 0.5rem 1.25rem;
+  }
