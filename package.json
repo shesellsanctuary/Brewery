@@ -7,9 +7,7 @@
     "start-server": "node ./server/src/beerServer.js",
     "start-client": "ng serve --open",
     "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

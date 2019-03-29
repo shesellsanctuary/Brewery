@@ -20,6 +20,6 @@ describe('BeerItemComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).not.toBeNull();
   });
 });
