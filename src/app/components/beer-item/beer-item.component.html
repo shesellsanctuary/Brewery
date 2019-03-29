@@ -1,7 +1,5 @@
-<div [ngClass]="setClasses()">
-  <p>
-    <input  (change)="onToggle(beer)" type="checkbox" />
-    {{ beer.name }} [{{ beer.idealTemp[0] }}, {{ beer.idealTemp[1] }}] => {{ beer.temperature }}
-    {{ beer.temperature >= beer.idealTemp[0] && beer.temperature <= beer.idealTemp[1] }}
-  </p>  
+<div [ngClass]="setClasses()" class="li">
+  <div>{{ beer.name }}</div>
+  <div>{{ beer.temperature }}°C</div>
+  <div>[ {{ beer.idealTemp[0] }}°C, {{ beer.idealTemp[1] }}°C ]</div>
 </div>

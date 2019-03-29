@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NbThemeModule } from '@nebular/theme';
-import { NbSidebarModule, NbLayoutModule, NbSidebarService } from '@nebular/theme';
+import { NbSidebarModule, NbLayoutModule, NbSidebarService, NbCardModule, NbListModule } from '@nebular/theme';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +23,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HttpClientModule,
     NbThemeModule.forRoot(),
     NbLayoutModule,
-    NbSidebarModule
+    NbSidebarModule,
+    NbCardModule,
+    NbListModule
   ],
   providers: [NbSidebarService],
   bootstrap: [AppComponent]
