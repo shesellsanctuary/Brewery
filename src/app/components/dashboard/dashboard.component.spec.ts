@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NbThemeModule } from '@nebular/theme';
+import { NbLayoutModule, NbSidebarModule, NbSidebarService } from '@nebular/theme';
 import { DashboardComponent } from './dashboard.component';
+import { Component, DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
+
+@Component({ selector: 'app-beers', template: '' })
+class BeersStubModule { }
+
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,7 +14,16 @@ describe('DashboardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      declarations: [ 
+        DashboardComponent,
+        BeersStubModule
+      ],
+      imports: [
+        NbLayoutModule,
+        NbThemeModule,
+        NbSidebarModule
+       ],
+      providers: [NbSidebarService]
     })
     .compileComponents();
   }));
@@ -19,7 +34,7 @@ describe('DashboardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('can instantiate the component', () => {
+    expect(component).not.toBeNull();
   });
 });
