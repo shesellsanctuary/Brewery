@@ -35,7 +35,7 @@ To create the ilusion of real-time temperature data coming to the app I used web
 I suppose Shane will see the notification and solve it by closing the trucks door for example. Then when the temperature stabalizes it will show on the app.
 
 ## What could be better for version 2
-*I would like to make a better UI with one component per beer type container.
-*Maybe a toast and/or a sound notification on out-of-temperature status.
+* I would like to make a better UI with one component per beer type container.
+* Maybe a toast and/or a sound notification on out-of-temperature status.
 
 
